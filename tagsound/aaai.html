@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Аудио-кнопка с картинкой</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #394339;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .audio-button {
+            width: 500px;
+            height: 500px;
+            background-image: url('https://avatars.mds.yandex.net/i?id=84170a1c421cb031907a6a1df79f4ab5_l-4451123-images-thumbs&n=13');
+            background-size: cover;
+            border: none;
+            border-radius: 1%;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .audio-button:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <!-- Скрытый аудио-элемент -->
+    <audio id="audioPlayer">
+        <source src="aai audio/АЙ.mp3" type="audio/mp3">
+        Ваш браузер не поддерживает аудио-элемент
+    </audio>
+
+    <!-- Кнопка с картинкой -->
+    <button id="playButton" class="audio-button"></button>
+
+    <script>
+        // Получаем элементы
+        const playButton = document.getElementById('playButton');
+        const audioPlayer = document.getElementById('audioPlayer');
+
+        // Добавляем обработчик клика
+        playButton.addEventListener('click', function() {
+            if (audioPlayer.paused) {
+                audioPlayer.play();
+            } else {
+                audioPlayer.pause();
+            }
+        });
+    </script>
+</body>
+</html>
